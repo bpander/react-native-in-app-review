@@ -25,12 +25,12 @@ RCT_EXPORT_METHOD(requestReview:
       // https://stackoverflow.com/a/63954318/1159534
       if (@available(iOS 14.0, *)) {
         UIWindowScene *activeScene;
-        NSSet* scenes = [[UIApplication sharedApplication] connectedScenes];
+        NSSet *scenes = [[UIApplication sharedApplication] connectedScenes];
         for (UIScene *scene in scenes) {
-            if ([scene activationState] == UISceneActivationStateForegroundActive) {
-                activeScene = (UIWindowScene *)scene;
-                break;
-            }
+          if ([scene activationState] == UISceneActivationStateForegroundActive) {
+            activeScene = (UIWindowScene *)scene;
+            break;
+          }
         }
         if (activeScene != nil) {
           [SKStoreReviewController requestReviewInScene:activeScene];
